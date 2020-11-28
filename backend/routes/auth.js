@@ -5,7 +5,6 @@ const userService = require("../services/user.service");
 // routes
 router.post("/register", register);
 router.post("/authenticate", authenticate);
-router.get("/", getAll);
 router.get("/current", getCurrent);
 router.get("/:id", getById);
 router.put("/:id", update);
@@ -38,15 +37,6 @@ async function register(req, res, next) {
       console.log(err);
       res.status(500).json(err);
     }
-  }
-}
-
-async function getAll(req, res, next) {
-  try {
-    const users = await userService.getAll();
-    res.json(users);
-  } catch (err) {
-    next(err);
   }
 }
 

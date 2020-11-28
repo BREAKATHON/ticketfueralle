@@ -1,0 +1,6 @@
+- [x] Questions on User model in DB
+- [x] Login page
+- [x] Simplify User model in DB
+- [x] Profile needs Delete button
+- [x] Fix questions page to work with user in DB
+- [ ] Profiles are shareable

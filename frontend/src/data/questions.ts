@@ -1,0 +1,22 @@
+
+export const questions = {
+  "ruhigerPlatzZumSitzen": 'einen ruhigen Platz zum Sitzen',
+  "rollstuhlzugang": 'einen Zugang, der für einen Rollstuhl geeignet ist',
+  "blindenhund": 'Blindenhund',
+  "assistenzhund": 'Assistenzhund',
+  "rampe": 'eine Rampe',
+  "einBegleiter": 'einen Begleiter oder eine Begleiterin',
+  "ruhigerRaumFürPausen": 'einen ruhigen Raum für Pausen',
+  "zugangZurInduktionsschleife": 'Zugang zu einer Hörverstärkung für Schwerhörige (Induktionsschleife)',
+  "untertitel": 'Untertitel',
+  "übersetzungInDieGebärdensprache": 'Übersetzung in die Gebärdensprache',
+  "übersetzungInEineEinfacheSprache": 'Übersetzung in Einfache Sprache',
+  "hilfeDenRichtigenPlatzDieToilettenOderPausenräumeZuFinden": 'Hilfe, den richtigen Platz, die Toiletten oder andere Räume zu finden',
+  "audiobeschreibung": 'Eine Beschreibung zum Hören für Blinde',
+  "einerToiletteInDerNähe": 'eine Toilette in der Nähe',
+  "sanitäterInDerNähe": 'Sanitäter in der Nähe',
+  "besondersKleineSitze": 'besonders kleine Sitze',
+  "besondersGroßeSitze": 'besonders große Sitze',
+  "weicheUndBequemeSitze": 'weiche und bequeme Sitze',
+  "entspannterEinlass": 'entspannter Einlass',
+} as any;

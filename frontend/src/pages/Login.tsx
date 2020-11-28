@@ -3,17 +3,17 @@ import { navigate, RouteComponentProps } from '@reach/router'
 import { UserContext } from '../contexts/UserContext'
 import PageWrapper from '../components/PageWrapper';
 
-export default function Signup(props: RouteComponentProps) {
-  const { registerUser } = React.useContext(UserContext);
+export default function Login(props: RouteComponentProps) {
+  const { loginUser } = React.useContext(UserContext);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState(false);
+  const [error, setError] = React.useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    registerUser(email, password).then(success => {
+    loginUser(email, password).then(success => {
       if (success) {
-        navigate('/questions');
+        navigate('/profile');
       } else {
         setError(true)
       }
@@ -29,10 +29,9 @@ export default function Signup(props: RouteComponentProps) {
   }
 
   return (
-    <PageWrapper title="Anmelden">
-      {error ? <p tabIndex={0} style={{ color: "beige", fontSize: "2rem", border: "2px solid red" }}>Login or password is not correct. Please try again.</p> : null}
-
+    <PageWrapper title="Einloggen">
       <form autoComplete="on" onSubmit={handleSubmit}>
+        {error ? <p tabIndex={0} style={{ color: "beige", fontSize: "2rem", border: "2px solid red" }}>Login or password is not correct. Please try again.</p> : null}
 
         <fieldset className="signup">
           <label>
@@ -45,8 +44,7 @@ export default function Signup(props: RouteComponentProps) {
             <input type="password" name="password" value={password} onChange={handlePasswordChange} />
           </label>
         </fieldset>
-
-        <button>Anmelden</button>
+        <button>Einloggen</button>
       </form>
     </PageWrapper>
   )

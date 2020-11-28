@@ -12,7 +12,6 @@ module.exports = {
   delete: _delete,
 };
 
-const isUrlSafe = (string) => /^[a-zA-Z0-9_-]*$/.test(string);
 const validateEmail = (email) => {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -45,42 +44,26 @@ async function getById(id) {
 }
 
 async function create(userParam) {
+  console.log(userParam);
   // validate
   if (
     "password" in userParam &&
-    "email" in userParam &&
-    "birthDate" in userParam &&
-    "username" in userParam
+    "email" in userParam
   ) {
-    if (userParam.password.length < 8) {
-      throw {
-        status: 422,
-        message: "Password must be at least 8 characters long",
-      };
-    }
+    // if (userParam.password.length < 8) {
+    //   throw {
+    //     status: 422,
+    //     message: "Password must be at least 8 characters long",
+    //   };
+    // }
     if (!validateEmail(userParam.email)) {
       throw {
         status: 422,
         message: "Invalid email",
       };
     }
-    if (!validateDate(userParam.birthDate)) {
-      throw {
-        status: 422,
-        message: "Invalid birth date",
-      };
-    }
-    if (!isUrlSafe(userParam.username)) {
-      throw {
-        status: 422,
-        message: "Invalid username",
-      };
-    }
     if (await User.findOne({ email: userParam.email })) {
       throw { status: 409, message: "This email is already taken" };
-    }
-    if (await User.findOne({ username: userParam.username })) {
-      throw { status: 409, message: "This username is already taken" };
     }
   } else {
     throw {
@@ -92,9 +75,6 @@ async function create(userParam) {
   const user = await User.create({
     password: bcrypt.hashSync(userParam.password),
     email: userParam.email,
-    birthDate: userParam.birthDate,
-    displayName: userParam.displayName,
-    username: userParam.username,
   });
 
   return user;

@@ -1,29 +1,23 @@
 import * as React from 'react';
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 
 import Home from './pages/Home';
-import './App.css';
 import Profile from './pages/Profile';
+import Questions from './pages/Questions';
 import Signup from './pages/Signup';
+import Login from './pages/Login';
 
-interface User {
-  email: string;
-  needs: string[];
-}
+import './App.css';
 
 const App = () => {
   return (
-    <>
-      <header>hello</header>
-      <main>
-        <Router>
-          <Home path="/" />
-          <Profile path="/profile" />
-          <Signup path="/signup" />
-        </Router>
-      </main>
-      <footer></footer>
-    </>
+    <Router>
+      <Home path="/" />
+      <Profile path="/profile" />
+      <Questions path="/questions" />
+      <Login path="/login" />
+      <Signup path="/signup" />
+    </Router>
   )
 }
 
